@@ -19,7 +19,7 @@ load ("MasterMode.js");
 load ("GrooveMode.js");
 load ("FrameMode.js");
 load ("AccentMode.js");
-load ("PresetMode.js");
+//load ("PresetMode.js");
 load ("TrackViewMode.js");
 load ("SceneTriggerMode.js");
 load ("ClipTriggerMode.js");

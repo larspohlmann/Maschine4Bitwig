@@ -125,8 +125,16 @@ StepSequencerView.prototype.doNew = function (trackIndex)
 
 StepSequencerView.prototype.getSelectPadColor = function (pad, selectedTrack, isDim)
 {
-    var padColorId = pad.color;
-    var padColor = BitwigColor.getColor (padColorId, isDim);
+    var padColor = null;
+
+    try {
+        var padColorId = pad.color;
+        padColor = BitwigColor.getColor (padColorId, isDim);
+    }
+    catch(err) {
+        null;
+    }
+
     if (padColor == null)
         padColor = BitwigColor.getColor (selectedTrack.color, isDim);
 
