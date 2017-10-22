@@ -60,11 +60,21 @@ Grid.prototype.flush = function ()
 
 Grid.prototype.sendColor = function (channel, color)
 {
-    //println(color.hue);
-    var hue = Math.floor (color.hue * 127.0 / 360.0);
-    var saturation = Math.floor ((1 - Math.pow (1 - color.saturation, 2)) * 127.0);
-    var brightness = Math.floor (color.brightness * 127.0);
+    var hue = 0;
+    var saturation = 0;
+    var brightness = 0;
 
+    try {
+        hue = Math.floor(color.hue * 127.0 / 360.0);
+        saturation = Math.floor((1 - Math.pow(1 - color.saturation, 2)) * 127.0);
+        brightness = Math.floor(color.brightness * 127.0);
+    } catch (err) {
+        null;
+    }
+
+    // println(hue);
+    // println(saturation);
+    // println(brightness);
 
     this.output.sendNoteEx (0, channel, hue);
     this.output.sendNoteEx (1, channel, saturation);
